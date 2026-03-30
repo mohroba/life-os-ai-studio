@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Anton&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--f-sans, "Inter", ui-sans-serif, system-ui, sans-serif);
+  --font-display: var(--f-display, "Outfit", ui-sans-serif, system-ui, sans-serif);
+  --font-mono: var(--f-mono, "JetBrains Mono", ui-monospace, SFMono-Regular, monospace);
+  
+  --color-background: var(--c-bg, #0a0a0a);
+  --color-foreground: var(--c-text, #fafafa);
+  
+  --color-card: var(--c-card, rgba(255, 255, 255, 0.03));
+  --color-card-foreground: var(--c-text, #fafafa);
+  
+  --color-primary: var(--c-primary, #f27d26);
+  --color-primary-foreground: var(--c-bg, #0a0a0a);
+  
+  --color-secondary: #27272a;
+  --color-secondary-foreground: #fafafa;
+  
+  --color-muted: #27272a;
+  --color-muted-foreground: #a1a1aa;
+  
+  --color-accent: var(--c-accent, #27272a);
+  --color-accent-foreground: #fafafa;
+  
+  --color-destructive: #7f1d1d;
+  --color-destructive-foreground: #fafafa;
+
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-input: rgba(255, 255, 255, 0.1);
+  --color-ring: var(--c-primary, #f27d26);
+
+  --radius-lg: 1rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .glass-panel {
+    background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, #fafafa, #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Tiptap Editor Styles */
+  .prose {
+    color: var(--color-foreground);
+  }
+  .prose p {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+  .prose p.is-editor-empty:first-child::before {
+    color: var(--color-muted-foreground);
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .prose strong {
+    color: var(--color-foreground);
+    font-weight: 600;
+  }
+  .prose ul {
+    list-style-type: disc;
+    padding-left: 1.625em;
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+  .prose ol {
+    list-style-type: decimal;
+    padding-left: 1.625em;
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+  .prose li {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+}
